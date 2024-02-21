@@ -16,7 +16,7 @@
 .dual-pane-container #right-pane {
   padding-left: 1rem;
   height: 90vh;
-  border-left: 1px solid var(--background-modifier-border);
+  border-left: 1px solid rgba(128, 128, 128, 0.077);
 }
 .dual-pane-container #left-pane .folders {
   /* display: flex; */
