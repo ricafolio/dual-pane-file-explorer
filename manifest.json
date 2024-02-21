@@ -1,11 +1,11 @@
 {
-	"id": "sample-plugin",
-	"name": "Sample Plugin",
+	"id": "dual-pane-file-explorer",
+	"name": "Dual Pane File Explorer",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "Demonstrates some of the capabilities of the Obsidian API.",
-	"author": "Obsidian",
-	"authorUrl": "https://obsidian.md",
-	"fundingUrl": "https://obsidian.md/pricing",
-	"isDesktopOnly": false
+	"description": "Add dual pane UI in your Obsidian file explorer",
+	"author": "ricafolio",
+	"authorUrl": "https://ricafolio.dev",
+	"fundingUrl": "https://ricafolio.dev",
+	"isDesktopOnly": true
 }
