@@ -1,4 +1,5 @@
 import { App, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
+import { DualPaneView } from "./dual-pane-view"
 
 interface MyPluginSettings {
 	useCompact: boolean;
@@ -11,14 +12,27 @@ const DEFAULT_SETTINGS: MyPluginSettings = {
 export default class MyPlugin extends Plugin {
 	settings: MyPluginSettings;
 
+	VIEW_TYPE = "dual-pane-view";
+
 	async onload() {
 		await this.loadSettings();
 
+		// Register file tree view
+		this.registerView(this.VIEW_TYPE, (leaf) => new DualPaneView(leaf));
+
 		// This creates an icon in the left ribbon.
-		const columnsIcon = this.addRibbonIcon('columns', 'Dual Pane File Explorer', (evt: MouseEvent) => {
-			// Called when the user clicks the icon.
-			new Notice('This is a notice!');
+		const columnsIcon = this.addRibbonIcon('columns', 'Dual Pane File Explorer', async (evt: MouseEvent) => {
+			new Notice('Welcome to dual pane file explorer!');
+			await this.openDualPaneLeaf();
 		});
+
+		// open sidebar upon startup, not reco, add setting
+		// this.app.workspace.onLayoutReady(async () => {
+		// 	if (openOnStart) {
+		//   await this.openDualPaneLeaf();
+		//  }
+		// });
+
 		// Perform additional things with the ribbon
 		columnsIcon.addClass('columns-icon');
 
@@ -35,7 +49,7 @@ export default class MyPlugin extends Plugin {
 		this.registerInterval(window.setInterval(() => console.log('setInterval'), 5 * 60 * 1000));
 	}
 
-	onunload() {
+	async onunload() {
 
 	}
 
@@ -45,6 +59,12 @@ export default class MyPlugin extends Plugin {
 
 	async saveSettings() {
 		await this.saveData(this.settings);
+	}
+
+	async openDualPaneLeaf() {
+		const leaf = this.app.workspace.getLeftLeaf(false);
+		await leaf.setViewState({ type: this.VIEW_TYPE });
+		this.app.workspace.revealLeaf(leaf);
 	}
 }
 
