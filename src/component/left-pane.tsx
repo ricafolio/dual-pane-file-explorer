@@ -5,7 +5,13 @@ export const LeftPane = () => {
     <aside id="left-pane">
       <b>Vault name</b>
       <div className="folders">
-        {[...Array(10)].map((i) => <Folder key={`folder-${i}`} />)}
+        {[...Array(20)].map((x, i) =>
+          <Folder
+            key={`folder-${i}`}
+            folderName={`Folder name ${i}`}
+            isActive={i === 0}
+          />
+        )}
       </div>
     </aside>
   )
