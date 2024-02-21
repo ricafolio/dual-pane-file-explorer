@@ -1,7 +1,7 @@
 {
-	"name": "obsidian-sample-plugin",
+	"name": "dual-pane-file-explorer",
 	"version": "1.0.0",
-	"description": "This is a sample plugin for Obsidian (https://obsidian.md)",
+	"description": "Add dual pane UI in your Obsidian file explorer",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
