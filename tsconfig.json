@@ -10,6 +10,7 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "isolatedModules": true,
+    "jsx": "preserve",
 	"strictNullChecks": true,
     "lib": [
       "DOM",
