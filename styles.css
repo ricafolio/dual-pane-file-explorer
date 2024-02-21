@@ -1,6 +1,6 @@
 .dual-pane-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 45% 55%;
 }
 .dual-pane-container aside b {
   font-size: 0.85rem;
@@ -10,25 +10,32 @@
   display: flex;
   flex-direction: column;
 }
+
 .dual-pane-container #left-pane {
   padding-right: 1rem;
+}
+.dual-pane-container #left-pane .folders {
+  margin-top: 0.5rem;
+}
+.dual-pane-container #left-pane .folders #folder {
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+}
+.dual-pane-container #left-pane .folders #folder.is-active {
+  background-color: var(--nav-item-background-hover);
+  color: var(--nav-item-color-hover);
+  font-weight: var(--nav-item-weight-hover);
+}
+
+.dual-pane-container #right-pane .files {
+  margin-top: 0.5rem;
+}
+.dual-pane-container #right-pane .files #file .tree-item-v2 {
+  padding: 0.6rem 0.7rem;
+  margin-bottom: 4px;
 }
 .dual-pane-container #right-pane {
   padding-left: 1rem;
   height: 90vh;
   border-left: 1px solid rgba(128, 128, 128, 0.077);
-}
-.dual-pane-container #left-pane .folders {
-  /* display: flex; */
-  margin-top: 0.5rem;
-}
-
-.dual-pane-container #right-pane .files {
-  /* display: flex; */
-  margin-top: 0.5rem;
-}
-.dual-pane-container #right-pane .files #file .tree-item-v2 {
-  cursor: pointer;
-  padding: 0.6rem 0.7rem;
-  margin-bottom: 4px;
 }
